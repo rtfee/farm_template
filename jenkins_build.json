@@ -3,7 +3,7 @@
         "schema_version": "v1beta0-7.7.10"
     },
     "farm": {
-        "name": "Jenkins1",
+        "name": "Jenkins2",
         "description": "",
         "project": {
             "id": "75c84cfe-c5e8-4fc4-b1e4-e68665a4a30c"
