@@ -1,0 +1,94 @@
+{
+    "_meta": {
+        "schema_version": "v1beta0-7.7.10"
+    },
+    "farm": {
+        "name": "Jenkins1",
+        "description": "",
+        "project": {
+            "id": "75c84cfe-c5e8-4fc4-b1e4-e68665a4a30c"
+        },
+        "timezone": "America\/New_York",
+        "launchOrder": "simultaneous",
+        "variables": []
+    },
+    "roles": [
+        {
+            "alias": "base-ubuntu1604-hvm",
+            "role": {
+                "name": "base-ubuntu1604-hvm"
+            },
+            "cloudPlatform": "ec2",
+            "cloudLocation": "us-west-1",
+            "instanceType": {
+                "id": "t2.small"
+            },
+            "launchIndex": 0,
+            "advancedConfiguration": {
+                "disableAgentIptablesManagement": false,
+                "disableAgentNtpManagement": false,
+                "rebootAfterHostInit": false
+            },
+            "scaling": {
+                "considerSuspendedServers": "running",
+                "enabled": true,
+                "maxInstances": 2,
+                "minInstances": 1,
+                "rules": [],
+                "scalingBehavior": "launch-terminate"
+            },
+            "networking": {
+                "networks": [
+                    {
+                        "id": "vpc-9483dcf1"
+                    }
+                ],
+                "subnets": [
+                    {
+                        "id": "subnet-d7c5988e"
+                    }
+                ]
+            },
+            "cloudFeatures": {
+                "type": "AwsCloudFeatures",
+                "ebsOptimized": false
+            },
+            "variables": [
+                {
+                    "name": "ENVIRONMENT_TYPE_GV",
+                    "value": "prod"
+                }
+            ],
+            "orchestration": {
+                "rules": [
+                    {
+                        "trigger": {
+                            "event": {
+                                "id": "HostInit"
+                            },
+                            "triggerType": "SpecificEventTrigger"
+                        },
+                        "target": {
+                            "targetType": "TriggeringServerTarget"
+                        },
+                        "action": {
+                            "actionType": "ScalrScriptAction",
+                            "scriptVersion": {
+                                "script": {
+                                    "name": "Install Jenkins"
+                                },
+                                "version": -1
+                            }
+                        },
+                        "timeout": 180,
+                        "runAs": "",
+                        "order": 10,
+                        "blocking": true,
+                        "enabled": true
+                    }
+                ]
+            },
+            "storage": []
+        }
+    ]
+}
