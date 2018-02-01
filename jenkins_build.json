@@ -75,7 +75,7 @@
                             "actionType": "ScalrScriptAction",
                             "scriptVersion": {
                                 "script": {
-                                    "name": "Install Jenkins"
+                                    "id": "201"
                                 },
                                 "version": -1
                             }
