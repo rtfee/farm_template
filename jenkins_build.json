@@ -1,9 +1,9 @@
 {
     "_meta": {
-        "schema_version": "v1beta0-7.7.10"
+        "schema_version": "v1beta0-7.7.11"
     },
     "farm": {
-        "name": "Jenkins2",
+        "name": "cloudinit",
         "description": "",
         "project": {
             "id": "75c84cfe-c5e8-4fc4-b1e4-e68665a4a30c"
@@ -14,28 +14,21 @@
     },
     "roles": [
         {
-            "alias": "base-ubuntu1604-hvm",
+            "alias": "aws-linux-cloudinit",
             "role": {
-                "name": "base-ubuntu1604-hvm"
+                "name": "aws-linux-cloudinit"
             },
             "cloudPlatform": "ec2",
             "cloudLocation": "us-west-1",
             "instanceType": {
-                "id": "t2.small"
+                "id": "t2.micro"
             },
             "launchIndex": 0,
-            "advancedConfiguration": {
-                "disableAgentIptablesManagement": false,
-                "disableAgentNtpManagement": false,
-                "rebootAfterHostInit": false
-            },
             "scaling": {
-                "considerSuspendedServers": "running",
                 "enabled": true,
                 "maxInstances": 2,
                 "minInstances": 1,
-                "rules": [],
-                "scalingBehavior": "launch-terminate"
+                "rules": []
             },
             "networking": {
                 "networks": [
@@ -53,40 +46,9 @@
                 "type": "AwsCloudFeatures",
                 "ebsOptimized": false
             },
-            "variables": [
-                {
-                    "name": "ENVIRONMENT_TYPE_GV",
-                    "value": "prod"
-                }
-            ],
+            "variables": [],
             "orchestration": {
-                "rules": [
-                    {
-                        "trigger": {
-                            "event": {
-                                "id": "HostInit"
-                            },
-                            "triggerType": "SpecificEventTrigger"
-                        },
-                        "target": {
-                            "targetType": "TriggeringServerTarget"
-                        },
-                        "action": {
-                            "actionType": "ScalrScriptAction",
-                            "scriptVersion": {
-                                "script": {
-                                    "id": "201"
-                                },
-                                "version": -1
-                            }
-                        },
-                        "timeout": 180,
-                        "runAs": "",
-                        "order": 10,
-                        "blocking": true,
-                        "enabled": true
-                    }
-                ]
+                "rules": []
             },
             "storage": []
         }
