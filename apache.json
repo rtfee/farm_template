@@ -53,19 +53,6 @@
                 "type": "AwsCloudFeatures",
                 "ebsOptimized": false
             },
-            "bootstrapping": {
-                "enabled": true,
-                "type": "ChefServerBootstrapConfiguration",
-                "server": {
-                    "id": 5
-                },
-                "environment": "_default",
-                "logLevel": "auto",
-                "sslVerificationMode": "none",
-                "scope": "role",
-                "daemonize": false,
-                "runList": "{recipe}"
-            },
             "variables": [],
             "orchestration": {
                 "rules": [
