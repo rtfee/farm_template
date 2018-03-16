@@ -1,9 +1,9 @@
 {
     "_meta": {
-        "schema_version": "v1beta0-7.7.11"
+        "schema_version": "v1beta0-7.8.0"
     },
     "farm": {
-        "name": "cloudinit_example_2",
+        "name": "Apache_v2",
         "description": "",
         "project": {
             "id": "75c84cfe-c5e8-4fc4-b1e4-e68665a4a30c"
@@ -14,21 +14,20 @@
     },
     "roles": [
         {
-            "alias": "aws-linux-cloudinit",
+            "alias": "apache-centos6",
             "role": {
-                "name": "aws-linux-cloudinit"
+                "name": "apache-centos6"
             },
             "cloudPlatform": "ec2",
             "cloudLocation": "us-west-1",
             "instanceType": {
-                "id": "t2.micro"
+                "id": "t1.micro"
             },
             "launchIndex": 0,
-            "scaling": {
-                "enabled": true,
-                "maxInstances": 2,
-                "minInstances": 1,
-                "rules": []
+            "advancedConfiguration": {
+                "disableAgentIptablesManagement": false,
+                "disableAgentNtpManagement": false,
+                "rebootAfterHostInit": false
             },
             "networking": {
                 "networks": [
